@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 def crawl_genk_mobile():
-    url = "https://genk.vn/apps-games.chn"
-    max_articles = 1000  # Số lượng bài viết muốn cào
+    url = "https://genk.vn/do-choi-so.chn"
+    max_articles = 2000  # Số lượng bài viết muốn cào
     
     # Khởi tạo trình duyệt Chrome với Selenium
     options = webdriver.ChromeOptions()
@@ -83,10 +83,10 @@ def crawl_genk_mobile():
     driver.quit()
     
     # Lưu dữ liệu vào file JSON
-    with open('genk_mobile_news.json', 'w', encoding='utf-8') as json_file:
+    with open('genk_do_choi_so.json', 'w', encoding='utf-8') as json_file:
         json.dump(news_list[:max_articles], json_file, ensure_ascii=False, indent=4)
 
-    print(f"Lưu dữ liệu thành công! Đã lưu {len(news_list[:max_articles])} bản tin vào genk_mobile_news.json")
+    print(f"Lưu dữ liệu thành công! Đã lưu {len(news_list[:max_articles])} bản tin vào genk_do_choi_so.json")
 
 # Gọi hàm để cào dữ liệu
 crawl_genk_mobile()
